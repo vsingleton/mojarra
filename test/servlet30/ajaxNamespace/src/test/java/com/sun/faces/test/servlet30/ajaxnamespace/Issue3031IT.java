@@ -157,6 +157,7 @@ public class Issue3031IT {
 
     @Test
     public void testNonAjaxWithParams() throws Exception {
+        System.out.println("testNonAjaxWithParams: webUrl = " + webUrl);
         HtmlPage page = webClient.getPage(webUrl);
         
         HtmlElement input = (HtmlElement) page.getElementById("MyNamingContainerj_id1:nonAjaxInputParams");
@@ -169,7 +170,11 @@ public class Issue3031IT {
         page = button.click();
         
         HtmlElement output = (HtmlElement) page.getElementById("MyNamingContainerj_id1:nonAjaxOutputParams");
-        assertTrue(output.asText().contains("MyNonAjaxText value"));
+        assertTrue("output should not be null but it is null.", null != output);
+        assertTrue(
+            "output.asText() should contain 'MyNonAjaxText value', but instead contains '" + output.asText() + "'",
+            output.asText().contains("MyNonAjaxText")
+        );
 
 
     }
