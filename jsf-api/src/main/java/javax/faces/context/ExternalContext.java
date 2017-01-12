@@ -464,6 +464,30 @@ public abstract class ExternalContext {
     }    
 
 
+    /**
+     *
+     * <p>Set the environment-specific flash to be returned by
+     * subsequent calls to {@link #getFlash}.  This may be used to
+     * install a wrapper for the flash.</p>
+     *
+     * <p>The default implementation throws
+     * <code>UnsupportedOperationException</code> and is provided for
+     * the sole purpose of not breaking existing applications that
+     * extend this class.</p>
+     *
+     * @param flash the <code>Flash</code> object to be set.
+     *
+     * @since 2.3
+     */
+    public void setFlash(Flash flash) {
+
+        if (defaultExternalContext != null) {
+            defaultExternalContext.setFlash(flash);
+        } else {
+            throw new UnsupportedOperationException();
+        }
+
+    }
 
 
     /**

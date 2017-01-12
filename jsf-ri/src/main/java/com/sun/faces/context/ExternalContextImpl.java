@@ -1194,6 +1194,12 @@ public class ExternalContextImpl extends ExternalContext {
         return flash;
     }
 
+    // JAVASERVERFACES_SPEC_PUBLIC-1070
+    @Override
+    public void setFlash(Flash flash) {
+        this.flash = flash;
+    }
+
     private void doLastPhaseActions(FacesContext context, 
             boolean outgoingResponseIsRedirect) {
         Map<Object, Object> attrs = context.getAttributes();

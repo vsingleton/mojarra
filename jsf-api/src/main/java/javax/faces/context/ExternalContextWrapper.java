@@ -1034,4 +1034,17 @@ public abstract class ExternalContextWrapper extends ExternalContext implements 
         return getWrapped().getFlash();
     }
 
+    /**
+     * <p>The default behavior of this method is to
+     * call {@link ExternalContext#setFlash(Flash)}
+     * on the wrapped {@link ExternalContext} object.</p>
+     *
+     * @see javax.faces.context.ExternalContext#setFlash(Flash)
+     * @since 2.3
+     */
+    @Override
+    public void setFlash(Flash flash) {
+        getWrapped().setFlash(flash);
+    }
+
 }
